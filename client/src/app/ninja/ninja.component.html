@@ -1,0 +1,54 @@
+<html>
+  <head>
+      <title>Ninja Gold</title>
+  </head>
+  <style>
+      .building {
+          width: 200px;
+          height: 150px;
+          display: inline-block;
+          border: 2px solid black;
+          padding: 10px;
+          margin: 10px;
+      }
+  </style>
+  <body>
+      
+      <div class ='building'>
+          <h4>FARM</h4>
+          <p>earns 2-5 golds</p>
+          <form (submit) = "process_money(2, 5, 'farm')">
+          <input type = "hidden" name = "building" value = "farm"/>
+          <input type = "submit" value = "Find Gold"/>
+          </form>
+      </div>
+      <div class ='building'>
+          <h4>CAVE</h4>
+          <p>earns 5-10 golds</p>
+          <form (submit) = "process_money(5, 10, 'cave')">
+              <input type = "hidden" name = "building" value = "cave"/>
+              <input type = "submit" value = "Find Gold"/>
+          </form>
+      </div>
+      <div class ='building'>
+          <h4>HOUSE</h4>
+          <p>earns 7-15 golds</p>
+          <form (submit) = "process_money(7, 15, 'house')">
+              <input type = "hidden" name = "building" value = "house"/>
+              <input type = "submit" value = "Find Gold"/>
+          </form>
+      </div>
+      <div class ='building'>
+          <h4>CASINO</h4>
+          <p>earns/loses up to 100 golds</p>
+          <form (submit) = "process_money(-100, 100, 'casino')">
+              <input type = "hidden" name = "building" value = "casino"/>
+              <input type = "submit" value = "Find Gold"/>
+          </form>
+      </div>
+      <p>Your total amount of gold: {{ ninja.total }} </p>
+      <div *ngFor = "let activity of ninja['activity']">
+          <p>{{ activity }}</p>
+      </div>
+  </body>
+</html>
